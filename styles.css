@@ -1,0 +1,22 @@
+body {
+	margin: 40px;
+}
+
+#navTabs button {
+	float: right;
+}
+
+div .btn {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+div div div {
+	float: right;
+	font-size: medium;
+	margin-top: 20px;
+}
+
+button {
+	width: 150px;
+}

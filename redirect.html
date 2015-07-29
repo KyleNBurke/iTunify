@@ -1,0 +1,11 @@
+<html>
+<head>
+<script>
+(function() {
+	var accessToken = window.location.hash.split("#")[1].split("&")[0].split("=")[1];
+	localStorage.setItem("accessToken", accessToken);
+	window.close();
+})();
+</script>
+</head>
+</html>
