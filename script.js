@@ -40,6 +40,12 @@ function update(url, genre, playlistURI)
 {
 	 $("#" + genre + " div").text("Updating...");
 
+	 if(localStorage.getItem("accessToken") === null)
+	 {
+	 	$("#" + genre + " div").text("Access token not found");
+	 	return;
+	 }
+
 	var xmlHttp = new XMLHttpRequest();
 
 	xmlHttp.onreadystatechange = function()
