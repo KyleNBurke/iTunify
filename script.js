@@ -29,7 +29,8 @@ function authorize()
 {
 	var clientID = "8c1c8a8cfdee4f2b8a53f86de34d5ecd";
 	var scopes = "playlist-modify-public playlist-modify-private";
-	var redirectURI = "http://casualkyle.github.io/redirect.html";
+	//var redirectURI = "http://casualkyle.github.io/redirect.html";
+    var redirectURI = "http://localhost/itunify/redirect.html";
 
 	var url = "https://accounts.spotify.com/authorize?response_type=token&client_id=" + clientID + "&scope=" + scopes + "&redirect_uri=" + redirectURI;
 
@@ -103,28 +104,10 @@ function responseSuccessful(doc, genre, playlistURI)
 
         var artwork = n.childNodes[21].textContent;
         var title = n.childNodes[7].textContent;
-        var artist;
-        var album;
-        var fuckedUp = false;
-
-        if(n.childNodes.length <= 31)
-        {
-            fuckedUp = true;
-            artist = n.childNodes[15].textContent;
-            album = n.childNodes[27].textContent;
-        }
-        else
-        {
-            album = n.childNodes[31].textContent;
-            artist = n.childNodes[7].textContent;
-        }
+        var artist = n.childNodes[17].textContent;
+        var album = n.childNodes[31].textContent;
 
         $("#"+genre+" table").append('<tr><td>' + (i + 1) +'</td><td><image src="' + artwork + '" width="32px" height="32px" /></td><td>' + title + "</td><td>" + artist + "</td><td>" + album + "</td></tr>");
-
-        if(fuckedUp)
-        {
-            continue;
-        }
 
         var query = "track:" + encodeURI(trackTitle + " ") + "artist:" + encodeURI(artistName);
 
