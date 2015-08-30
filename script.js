@@ -29,8 +29,8 @@ function authorize()
 {
 	var clientID = "8c1c8a8cfdee4f2b8a53f86de34d5ecd";
 	var scopes = "playlist-modify-public playlist-modify-private";
-	//var redirectURI = "http://casualkyle.github.io/redirect.html";
-    var redirectURI = "http://localhost/itunify/redirect.html";
+	var redirectURI = "http://casualkyle.github.io/redirect.html";
+    //var redirectURI = "http://localhost/itunify/redirect.html";
 
 	var url = "https://accounts.spotify.com/authorize?response_type=token&client_id=" + clientID + "&scope=" + scopes + "&redirect_uri=" + redirectURI;
 
@@ -46,6 +46,10 @@ function update(url, genre, playlistURI)
 	 	$("#" + genre + " div").text("Access token not found");
 	 	return;
 	 }
+     else
+     {
+        console.log(localStorage.getItem("accessToken"));
+     }
 
 	var xmlHttp = new XMLHttpRequest();
 
@@ -110,6 +114,8 @@ function responseSuccessful(doc, genre, playlistURI)
         $("#"+genre+" table").append('<tr><td>' + (i + 1) +'</td><td><image src="' + artwork + '" width="32px" height="32px" /></td><td>' + title + "</td><td>" + artist + "</td><td>" + album + "</td></tr>");
 
         var query = "track:" + encodeURI(trackTitle + " ") + "artist:" + encodeURI(artistName);
+
+        console.log(query);
 
         var forbiddenChar = false;
         if(query.split("#").length > 1) //forbidden character
