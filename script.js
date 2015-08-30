@@ -46,10 +46,6 @@ function update(url, genre, playlistURI)
 	 	$("#" + genre + " div").text("Access token not found");
 	 	return;
 	 }
-     else
-     {
-        console.log(localStorage.getItem("accessToken"));
-     }
 
 	var xmlHttp = new XMLHttpRequest();
 
@@ -114,8 +110,6 @@ function responseSuccessful(doc, genre, playlistURI)
         $("#"+genre+" table").append('<tr><td>' + (i + 1) +'</td><td><image src="' + artwork + '" width="32px" height="32px" /></td><td>' + title + "</td><td>" + artist + "</td><td>" + album + "</td></tr>");
 
         var query = "track:" + encodeURI(trackTitle + " ") + "artist:" + encodeURI(artistName);
-
-        console.log(query);
 
         var forbiddenChar = false;
         if(query.split("#").length > 1) //forbidden character
