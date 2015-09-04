@@ -35,17 +35,12 @@ function authorize()
 	var url = "https://accounts.spotify.com/authorize?response_type=token&client_id=" + clientID + "&scope=" + scopes + "&redirect_uri=" + redirectURI;
 
 	window.open(url);
+    $("button").removeAttr("disabled");
 }
 
 function update(url, genre, playlistURI)
 {
 	 $("#" + genre + " div").text("Updating...");
-
-	 if(localStorage.getItem("accessToken") === null)
-	 {
-	 	$("#" + genre + " div").text("Access token not found");
-	 	return;
-	 }
 
 	var xmlHttp = new XMLHttpRequest();
 
