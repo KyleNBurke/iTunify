@@ -29,7 +29,7 @@ function authorize()
 {
 	var clientID = "8c1c8a8cfdee4f2b8a53f86de34d5ecd";
 	var scopes = "playlist-modify-public playlist-modify-private";
-	var redirectURI = "http://casualkyle.github.io/redirect.html";
+	var redirectURI = "http://kylenburke.github.io/redirect.html";
     //var redirectURI = "http://localhost/itunify/redirect.html";
 
 	var url = "https://accounts.spotify.com/authorize?response_type=token&client_id=" + clientID + "&scope=" + scopes + "&redirect_uri=" + redirectURI;
